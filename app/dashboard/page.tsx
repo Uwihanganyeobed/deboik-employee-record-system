@@ -146,7 +146,7 @@ export default function DashboardPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className="min-h-screen bg-gray-100 overflow-x-hidden">
       {/* Header - Made more compact on mobile */}
       <header className="w-full bg-white border-b border-gray-200 py-2 sm:py-3 px-4 sm:px-6 flex justify-between items-center">
         <div className="flex items-center">
@@ -207,7 +207,7 @@ export default function DashboardPage() {
 
       <div className="flex min-h-[calc(100vh-56px)]">
         {/* Sidebar - Collapsible on mobile */}
-        <div className="w-12 sm:w-16 bg-white border-r border-gray-200 flex flex-col items-center py-4 sm:py-6">
+        <div className="w-12 sm:w-16 bg-white border-r border-gray-200 flex-shrink-0">
           <div className="flex flex-col gap-6">
             <button className="w-10 h-10 flex items-center justify-center text-gray-500 hover:text-gray-900">
               <svg
@@ -256,7 +256,7 @@ export default function DashboardPage() {
         </div>
 
         {/* Main content - Responsive padding and spacing */}
-        <div className="flex-1 p-4 sm:p-6 lg:p-8">
+        <div className="flex-1 p-2 sm:p-4 lg:p-6 overflow-x-hidden">
           {/* Title section */}
           <div className="bg-white rounded-lg p-4 sm:p-6 mb-4 sm:mb-6 flex justify-between items-center">
             <h1 className="text-lg sm:text-xl font-semibold text-gray-900">
@@ -271,7 +271,7 @@ export default function DashboardPage() {
           </div>
 
           {/* Actions section - Stack on mobile */}
-          <div className=" rounded-lg p-4 sm:p-6 mb-4 sm:mb-6">
+          <div className=" rounded-lg p-4 sm:p-6 mb-4 sm:mb-6 w-full">
             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 sm:mb-6 gap-4">
               <h2 className="text-base sm:text-lg font-medium text-gray-900">
                 {companyName}
@@ -279,7 +279,7 @@ export default function DashboardPage() {
               <p className="text-sm text-gray-600">{companyAddress}</p>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-between">
+            <div className="flex flex-col sm:flex-row gap-4 justify-between ">
               {/* Role filter and change button */}
               <div className="flex items-center gap-2 w-full sm:w-auto">
                 <select
@@ -373,36 +373,36 @@ export default function DashboardPage() {
             </div>
           </div>
 
-          {/* Table section - Horizontal scroll on mobile */}
-          <div className=" rounded-lg shadow-sm overflow-hidden">
-            <div className="overflow-x-auto">
+          {/* Table section with better mobile responsiveness */}
+          <div className="bg-white rounded-lg shadow-sm">
+            <div className="overflow-x-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
               <table className="w-full">
                 <thead className="bg-gray-50 border-b border-gray-200">
                   <tr>
-                    <th className="px-3 py-3 w-10">
+                    <th className="sticky left-0 bg-gray-50 px-2 py-2 sm:px-3 sm:py-3 w-8 sm:w-10">
                       <div className="flex justify-center">
                         <input
                           type="checkbox"
-                          className="rounded-sm border-green-300 text-green-500 focus:ring-green-500"
+                          className="w-3 h-3 sm:w-4 sm:h-4 rounded-sm border-green-300 text-green-500 focus:ring-green-500"
                         />
                       </div>
                     </th>
-                    <th className="px-4 sm:px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase whitespace-nowrap">
+                    <th className="px-2 sm:px-4 py-2 sm:py-3 text-left text-[11px] sm:text-xs font-medium text-gray-500 uppercase whitespace-nowrap">
                       First Name
                     </th>
-                    <th className="px-4 sm:px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase whitespace-nowrap">
+                    <th className="px-2 sm:px-4 py-2 sm:py-3 text-left text-[11px] sm:text-xs font-medium text-gray-500 uppercase whitespace-nowrap">
                       Last Name
                     </th>
-                    <th className="px-4 sm:px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase whitespace-nowrap">
+                    <th className="px-2 sm:px-4 py-2 sm:py-3 text-left text-[11px] sm:text-xs font-medium text-gray-500 uppercase whitespace-nowrap">
                       Email
                     </th>
-                    <th className="px-4 sm:px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase whitespace-nowrap">
+                    <th className="px-2 sm:px-4 py-2 sm:py-3 text-left text-[11px] sm:text-xs font-medium text-gray-500 uppercase whitespace-nowrap">
                       Phone
                     </th>
-                    <th className="px-4 sm:px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase whitespace-nowrap">
+                    <th className="px-2 sm:px-4 py-2 sm:py-3 text-left text-[11px] sm:text-xs font-medium text-gray-500 uppercase whitespace-nowrap">
                       Role
                     </th>
-                    <th className="px-4 sm:px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase whitespace-nowrap">
+                    <th className="px-2 sm:px-4 py-2 sm:py-3 text-left text-[11px] sm:text-xs font-medium text-gray-500 uppercase whitespace-nowrap">
                       Actions
                     </th>
                   </tr>
@@ -415,7 +415,7 @@ export default function DashboardPage() {
                         index % 2 === 0 ? "bg-white" : "bg-gray-50"
                       } hover:bg-gray-100`}
                     >
-                      <td className="px-3 py-3">
+                      <td className="sticky left-0 px-2 py-2 sm:px-3 sm:py-3 bg-inherit">
                         <div className="flex justify-center">
                           <input
                             type="checkbox"
@@ -427,25 +427,25 @@ export default function DashboardPage() {
                                   : employee._id
                               )
                             }
-                            className="rounded-sm border-gray-300 text-green-500 focus:ring-green-500"
+                            className="w-3 h-3 sm:w-4 sm:h-4 rounded-sm border-gray-300 text-green-500 focus:ring-green-500"
                           />
                         </div>
                       </td>
-                      <td className="px-4 sm:px-6 py-3 text-sm text-gray-900 whitespace-nowrap">
+                      <td className="px-2 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm text-gray-900 whitespace-nowrap">
                         {employee.firstName}
                       </td>
-                      <td className="px-4 sm:px-6 py-3 text-sm text-gray-900 whitespace-nowrap">
+                      <td className="px-2 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm text-gray-900 whitespace-nowrap">
                         {employee.lastName}
                       </td>
-                      <td className="px-4 sm:px-6 py-3 text-sm text-gray-500 whitespace-nowrap">
+                      <td className="px-2 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm text-gray-500 whitespace-nowrap">
                         {employee.email}
                       </td>
-                      <td className="px-4 sm:px-6 py-3 text-sm text-gray-500 whitespace-nowrap">
+                      <td className="px-2 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm text-gray-500 whitespace-nowrap">
                         {employee.phone}
                       </td>
-                      <td className="px-4 sm:px-6 py-3 whitespace-nowrap">
+                      <td className="px-2 sm:px-4 py-2 sm:py-3 whitespace-nowrap">
                         <span
-                          className={`inline-flex px-2 py-1 text-xs font-medium rounded-full
+                          className={`inline-flex px-1.5 py-0.5 sm:px-2 sm:py-1 text-[10px] sm:text-xs font-medium rounded-full
                           ${
                             employee.role === "Admin"
                               ? "bg-blue-100 text-blue-800"
@@ -455,19 +455,19 @@ export default function DashboardPage() {
                           {employee.role}
                         </span>
                       </td>
-                      <td className="px-4 sm:px-6 py-3 whitespace-nowrap">
-                        <div className="flex items-center gap-2">
+                      <td className="px-2 sm:px-4 py-2 sm:py-3 whitespace-nowrap">
+                        <div className="flex items-center gap-1 sm:gap-2">
                           <button
                             onClick={() => {
                               setEditingEmployee(employee);
                               setShowForm(true);
                             }}
-                            className="text-gray-400 hover:text-blue-600 p-1.5 rounded-lg hover:bg-blue-50 transition-colors"
+                            className="text-gray-400 hover:text-blue-600 p-1 sm:p-1.5 rounded-lg hover:bg-blue-50 transition-colors"
                             title="Edit employee"
                           >
                             <svg
-                              width="16"
-                              height="16"
+                              width="14"
+                              height="14"
                               viewBox="0 0 24 24"
                               fill="none"
                               stroke="currentColor"
@@ -477,15 +477,14 @@ export default function DashboardPage() {
                               <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
                             </svg>
                           </button>
-
                           <button
                             onClick={() => handleDelete(employee._id)}
-                            className="text-gray-400 hover:text-red-600 p-1.5 rounded-lg hover:bg-red-50 transition-colors"
+                            className="text-gray-400 hover:text-red-600 p-1 sm:p-1.5 rounded-lg hover:bg-red-50 transition-colors"
                             title="Delete employee"
                           >
                             <svg
-                              width="16"
-                              height="16"
+                              width="14"
+                              height="14"
                               viewBox="0 0 24 24"
                               fill="none"
                               stroke="currentColor"
