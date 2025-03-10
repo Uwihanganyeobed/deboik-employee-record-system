@@ -55,19 +55,6 @@ NEXTAUTH_URL=http://localhost:3000
 
 4. Run the development server:
    
-## 🏗️ Project Structure
-├── app/
-│ ├── api/ # API routes
-│ ├── dashboard/ # Dashboard pages
-│ ├── login/ # Login page
-│ └── register/ # Registration page
-├── components/ # Reusable components
-├── lib/ # Utilities and database
-├── models/ # MongoDB models
-├── providers/ # Context providers
-└── types/ # TypeScript types
-
-
 ## 🔐 Authentication Flow
 
 1. **Registration**
