@@ -1,36 +1,149 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Employee Management System
 
-## Getting Started
+A modern web application for managing employees built with Next.js 15, TypeScript, MongoDB, and NextAuth.js.
 
-First, run the development server:
+## 🚀 Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Authentication**
+  - Secure login and registration
+  - Protected routes and API endpoints
+  - Session management with NextAuth.js
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Employee Management**
+  - Add new employees
+  - Edit existing employee details
+  - Delete employees
+  - Role-based access (Admin/Staff)
+  - Bulk role updates
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **User Interface**
+  - Responsive design for all devices
+  - Modern and clean UI with Tailwind CSS
+  - Interactive data tables
+  - Form validation
+  - Loading states and error handling
+  - Image slider on auth pages
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🛠️ Tech Stack
 
-## Learn More
+- **Frontend**
+  - Next.js 13 (App Router)
+  - TypeScript
+  - Tailwind CSS
+  - React Hook Form
 
-To learn more about Next.js, take a look at the following resources:
+- **Backend**
+  - MongoDB (Database)
+  - NextAuth.js (Authentication)
+  - bcryptjs (Password hashing)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Development**
+  - ESLint
+  - Prettier
+  - TypeScript
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📦 Installation
 
-## Deploy on Vercel
+1. Clone the repository: https://github.com/Uwihanganyeobed/deboik-employee-record-system
+2. Install dependencies:
+3. Set up environment variables:
+Create a `.env` file in the root directory with:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+MONGODB_URI=your_mongodb_connection_string
+NEXTAUTH_SECRET=your_nextauth_secret
+NEXTAUTH_URL=http://localhost:3000
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+4. Run the development server:
+   
+## 🏗️ Project Structure
+├── app/
+│ ├── api/ # API routes
+│ ├── dashboard/ # Dashboard pages
+│ ├── login/ # Login page
+│ └── register/ # Registration page
+├── components/ # Reusable components
+├── lib/ # Utilities and database
+├── models/ # MongoDB models
+├── providers/ # Context providers
+└── types/ # TypeScript types
+
+
+## 🔐 Authentication Flow
+
+1. **Registration**
+   - User fills registration form
+   - Password is hashed using bcrypt
+   - User data is stored in MongoDB
+   - Redirected to login
+
+2. **Login**
+   - User provides credentials
+   - NextAuth validates credentials
+   - Creates session
+   - Redirects to dashboard
+
+## 💾 Database Schema
+
+### User Model
+typescript
+{
+name: string;
+email: string;
+password: string;
+createdAt: Date;
+updatedAt: Date;
+}
+
+### Employee Model
+typescript
+{
+firstName: string;
+lastName: string;
+email: string;
+phone: string;
+role: 'Admin' | 'Staff';
+createdBy: ObjectId;
+createdAt: Date;
+updatedAt: Date;
+}
+
+## 🔒 API Routes
+
+- `POST /api/auth/register` - Register new user
+- `POST /api/auth/login` - User login
+- `GET /api/employees` - List all employees
+- `POST /api/employees` - Create new employee
+- `PUT /api/employees/[id]` - Update employee
+- `DELETE /api/employees/[id]` - Delete employee
+
+## 🎨 UI Components
+
+- **Modal** - Reusable modal component
+- **Button** - Customizable button component
+- **LoadingSpinner** - Loading indicator
+- **ErrorMessage** - Error display component
+- **EmployeeForm** - Form for employee creation/editing
+
+## 📱 Responsive Design
+
+- Mobile-first approach
+- Horizontal scrolling tables for small screens
+- Responsive navigation
+- Adaptive layouts for all screen sizes
+
+## 🚀 Deployment
+
+The application is configured for deployment with:
+- TypeScript and ESLint checks disabled for production
+- Standalone output configuration
+- Environment variable validation
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create your feature branch
+3. Commit your changes
+4. Push to the branch
+5. Open a pull request
+
+Created_Developed and edited by Uwihanganye Obed.
