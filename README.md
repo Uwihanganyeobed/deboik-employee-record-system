@@ -27,7 +27,7 @@ A modern web application for managing employees built with Next.js 15, TypeScrip
 ## 🛠️ Tech Stack
 
 - **Frontend**
-  - Next.js 13 (App Router)
+  - Next.js 15 (App Router)
   - TypeScript
   - Tailwind CSS
   - React Hook Form
